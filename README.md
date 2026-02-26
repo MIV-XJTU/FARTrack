@@ -173,16 +173,6 @@ If any parts of our paper and code help your research, please consider citing us
     year={2026},
     url={https://openreview.net/forum?id=lq7Zfr8kAS}
 }
-
-@misc{wang2026fartrackfastautoregressivevisual,
-      title={FARTrack: Fast Autoregressive Visual Tracking with High Performance}, 
-      author={Guijie Wang and Tong Lin and Yifan Bai and Anjia Cao and Shiyi Liang and Wangbo Zhao and Xing Wei},
-      year={2026},
-      eprint={2602.03214},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV},
-      url={https://arxiv.org/abs/2602.03214}, 
-}
 ```
 
 ## Contact
