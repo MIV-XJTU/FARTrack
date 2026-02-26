@@ -1,0 +1,81 @@
+DATA:
+  MAX_SAMPLE_INTERVAL: 200
+  MEAN:
+  - 0.485
+  - 0.456
+  - 0.406
+  SEARCH:
+    CENTER_JITTER: 3.5
+    FACTOR: 4.0
+    SCALE_JITTER: 0.5
+    SIZE: 224
+    NUMBER: 1
+  STD:
+  - 0.229
+  - 0.224
+  - 0.225
+  TEMPLATE:
+    CENTER_JITTER: 0
+    FACTOR: 2.0
+    SCALE_JITTER: 0
+    SIZE: 112
+    NUMBER: 5
+  TRAIN:
+    DATASETS_NAME:
+    - LASOT
+    - GOT10K_vottrain
+    - COCO17
+    - TRACKINGNET
+    # - VastTrack
+    DATASETS_RATIO:
+    - 1
+    - 1
+    - 1
+    - 1
+    # - 1
+    SAMPLE_PER_EPOCH: 76800
+  VAL:
+    DATASETS_NAME:
+    - GOT10K_votval
+    DATASETS_RATIO:
+    - 1
+    SAMPLE_PER_EPOCH: 10000
+MODEL:
+  BINS: 300
+  RANGE: 2
+  EXTENSION: 3
+  PRETRAIN_FILE: "mae_tiny_distill_400e.pth.tar"
+  PRETRAIN_PTH: "/data5/FARTrack-re/main/fartrack_distill/FARTrack_ep0500.pth.tar" # Set the path to your FARTrack pretrained weights.
+  EXTRA_MERGER: False
+  RETURN_INTER: False
+  BACKBONE:
+    TYPE: vit_tiny_patch16_224
+    STRIDE: 16
+  # HEAD:
+  #   TYPE: PIX
+  #   NUM_CHANNELS: 768
+TRAIN:
+  BACKBONE_MULTIPLIER: 1.0
+  DROP_PATH_RATE: 0.1
+  BATCH_SIZE: 32
+  EPOCH: 500
+  GIOU_WEIGHT: 2.0
+  L1_WEIGHT: 0.0
+  GRAD_CLIP_NORM: 0.1
+  LR: 0.00004
+  LR_DROP_EPOCH: 400
+  NUM_WORKER: 10
+  OPTIMIZER: ADAMW
+  PRINT_INTERVAL: 50
+  SCHEDULER:
+    TYPE: step
+    DECAY_RATE: 0.1
+  VAL_EPOCH_INTERVAL: 20
+  WEIGHT_DECAY: 0.0001
+  AMP: False
+TEST:
+  EPOCH: 500 # 160 628w
+  SEARCH_FACTOR: 4.0
+  SEARCH_SIZE: 224
+  TEMPLATE_FACTOR: 2.0
+  TEMPLATE_SIZE: 112

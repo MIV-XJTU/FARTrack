@@ -1,0 +1,33 @@
+# ===================== General Ignore Rules (Applicable to All Projects) =====================
+# OS-related files
+.DS_Store                # MacOS system file
+Thumbs.db                # Windows system file
+*.swp                    # Vim temporary file
+*.swo                    # Vim temporary file
+*~                       # General temporary file
+.idea/                   # IntelliJ/PyCharm IDE configuration
+.idea/*
+.vscode/                 # VSCode IDE configuration
+.vscode/*
+
+
+# Python project specific
+__pycache__/             # Python compiled bytecode directory
+*.so                     # Compiled extension library
+.Python                  # virtualenv environment file
+venv/                    # Virtual environment directory
+env.bak/                 # Virtual environment backup
+venv.bak/                # Virtual environment backup
+.conda/                  # Conda cache
+
+# Log and temporary files
+logs/                    # Log directory
+*.log                    # Log file
+
+# ===================== Project-Specific Ignore Rules =====================
+# Pretrained model directory (core requirement)
+pretrained_models/       # Ignore the entire pretrained model directory
+pretrained_models/*
+*.pth                   # Optional: Ignore all .pth weight files separately (if directory is not ignored)
+*.ckpt                  # Optional: Ignore all .ckpt checkpoint files separately
+*.pth.tar
